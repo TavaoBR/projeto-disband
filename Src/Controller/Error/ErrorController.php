@@ -11,14 +11,13 @@ class ErrorController extends TemplateConfig{
         switch($data['errocode']){
           
             
-            case "400":
-              $this->error400();
-            break;
-  
-            case "403":
-              $this->error403();
-            break;
-  
+               case "400":
+               $this->error400();
+               break;
+   
+               case "403":
+               $this->error403();
+               break;
   
               case "404":
                  $this->error404();
@@ -37,31 +36,26 @@ class ErrorController extends TemplateConfig{
 
     private function error400()
      {
-        echo "400";
-         //$this->view("error/400", ["title" => "Error 400"]);
+        $this->view("error/400", ["title" => "Error 400"]);
      }
 
      private function error403()
      {
-        echo "403";
-         //$this->view("error/403", ["title" => "Error 403"]);
+         $this->view("error/403", ["title" => "Error 403"]);
      }
       
      private function error404()
      {
-        echo "404";
-         //$this->view("error/404", ["title" => "Error 404"]);
+         $this->view("error/404", ["title" => "Error 404"]);
      }
  
      private function error500()
      {
-        echo "500";
-        //$this->view("error/500", ["title" => "Error 500"]);
+        $this->view("error/500", ["title" => "Error 500"]);
      }
 
      private function error405(){
-        echo "405";
-      //$this->view("error/405", ["title" => "Error 405"]);
+      $this->view("error/405", ["title" => "Error 405"]);
      }
 
 }

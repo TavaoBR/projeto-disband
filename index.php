@@ -6,11 +6,11 @@ use Dotenv\Dotenv;
 
 require_once("vendor/autoload.php");
 
-
-
 $path = dirname(__FILE__);
 $dotenv = Dotenv::createUnsafeImmutable($path);
 $dotenv->load();
+
+error_reporting(1);
 
 class Index {
 

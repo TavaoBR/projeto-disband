@@ -21,7 +21,11 @@ class Routers {
         $router = $this->startServer();
 
         $router->group(null)->namespace("Src\Controller");
-        $router->get("/", "IndexController:index");        
+        $router->get("/", "IndexController:index");  
+        $router->get("/teste", "IndexController:teste");     
+
+        $router->group("user")->namespace("Src\Controller\Usuario");
+        $router->get("/login", "UController:login");
         
         $router->group("oops")->namespace("Src\Controller\Error");
         $router->get("/{errocode}", "ErrorController:notFound");
@@ -35,6 +39,18 @@ class Routers {
 
     public function post(){
         $router = $this->startServer();
+
+        $router->group("user")->namespace("Src\Request\Usuario");
+        $router->post("/login", "Login:Request");
+
+        $router->group("oops")->namespace("Src\Controller\Error");
+        $router->get("/{errocode}", "ErrorController:notFound");
+
+        $router->dispatch();
+
+        if($router->error()){
+            $router->redirect("/oops/{$router->error()}");
+        }
     }
 
 
